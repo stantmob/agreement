@@ -1,0 +1,3 @@
+include ':agreement'
+include ':app'
+rootProject.name = "Agreement"
