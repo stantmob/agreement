@@ -4,8 +4,8 @@ import android.content.Context
 import android.graphics.Bitmap
 import android.media.MediaScannerConnection
 import com.example.listener.OnSavedPhotoListener
-import rx.Single
-import rx.schedulers.Schedulers
+import io.reactivex.Single
+import io.reactivex.schedulers.Schedulers
 import java.io.File
 import java.io.FileOutputStream
 import java.text.SimpleDateFormat
@@ -15,7 +15,8 @@ fun Bitmap.saveBitmapInPictures(context: Context, onSavedPhotoListener: OnSavedP
     val calendar = Calendar.getInstance()
     val todayDate = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(calendar.time)
 
-    val directory = ImageViewFileUtil.getAppSpecificAlbumStorageDir(context, "Stant")
+    val directory = ImageViewFileUtil.getPublicAlbumDirectoryAtPictures( "Memeco")
+
     val imageFile = File.createTempFile(
         todayDate + "-" + ImageViewFileUtil.JPG_FILE_PREFIX
                 + calendar.timeInMillis, ImageViewFileUtil.JPG_FILE_SUFFIX, directory
@@ -25,7 +26,7 @@ fun Bitmap.saveBitmapInPictures(context: Context, onSavedPhotoListener: OnSavedP
 
     val compressThread = Single.fromCallable {
         this.compress(
-            Bitmap.CompressFormat.JPEG,
+            Bitmap.CompressFormat.PNG,
             100,
             fileOutputStream
         )

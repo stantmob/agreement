@@ -6,20 +6,8 @@
     <data>
 
         <variable
-            name="forwardText"
-            type="String" />
-
-        <variable
-            name="cleanText"
-            type="String" />
-
-        <variable
-            name="colorForward"
-            type="Integer" />
-
-        <variable
-            name="colorClean"
-            type="Integer" />
+            name="dto"
+            type="com.example.agreement.agreementdto.AddAgreementDto" />
 
     </data>
 
@@ -47,7 +35,7 @@
                 android:layout_marginTop="15dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_arrow_left" />
+                app:srcCompat="@drawable/ic_arrow_left_grey" />
 
             <TextView
                 android:id="@+id/forward_button"
@@ -57,10 +45,10 @@
                 android:paddingTop="20dp"
                 android:paddingEnd="20dp"
                 android:paddingBottom="20dp"
-                android:textColor="@{colorForward}"
+                android:textColor="@{dto.forwardColor}"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                android:text="@{forwardText}"
+                android:text="@{dto.forwardText}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="Salvar" />
@@ -87,9 +75,9 @@
                 android:paddingTop="20dp"
                 android:paddingEnd="20dp"
                 android:paddingBottom="20dp"
-                android:text="@{cleanText}"
+                android:text="@{dto.eraseText}"
                 tools:text="Erase"
-                android:textColor="@{colorClean}"
+                android:textColor="@{dto.eraseColor}"
                 android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" />

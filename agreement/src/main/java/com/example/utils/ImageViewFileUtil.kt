@@ -5,7 +5,6 @@ import android.os.Environment
 import android.util.Log
 import java.io.File
 
-
 object ImageViewFileUtil {
 
     private const val LOG_TAG = "NOT_CREATED"
@@ -26,6 +25,29 @@ object ImageViewFileUtil {
             Log.e(LOG_TAG, "Directory not created")
         }
         return file
+    }
+
+    fun getPublicAlbumDirectoryAtPictures(albumName: String?): File? {
+        val directory = File(
+            Environment.getExternalStoragePublicDirectory(
+                Environment.DIRECTORY_PICTURES
+            ), albumName
+        )
+        if (directoryDoesNotExists(directory)) {
+            if (!ImageViewFileUtil.createDirectory(directory)) {
+                Log.d("a", "Directory not created")
+                return null
+            }
+        }
+        return directory
+    }
+
+    private fun directoryDoesNotExists(directory: File): Boolean {
+        return !directory.exists()
+    }
+
+    private fun createDirectory(directory: File): Boolean {
+        return directory.mkdirs()
     }
 
 

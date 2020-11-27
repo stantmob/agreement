@@ -1,4 +1,4 @@
-package com.example.utils
+package com.example.utils.extensions
 
 import android.content.Context
 import android.content.res.Resources
@@ -10,7 +10,6 @@ import androidx.core.content.ContextCompat
 import com.example.agreement.R
 import kotlin.math.roundToInt
 
-
 fun View.getBitmapFromView(context: Context): Bitmap {
     val returnedBitmap = Bitmap.createBitmap(this.width, this.height, Bitmap.Config.ARGB_8888)
     val canvas         = Canvas(returnedBitmap)
@@ -19,7 +18,7 @@ fun View.getBitmapFromView(context: Context): Bitmap {
     if (bgDrawable != null) {
         bgDrawable.draw(canvas)
     } else {
-        canvas.drawColor(ContextCompat.getColor(context, R.color.black))
+        canvas.drawColor(ContextCompat.getColor(context, R.color.white))
     }
 
     this.draw(canvas)
@@ -56,28 +55,3 @@ fun convertDpToPixels(dp: Float): Int {
         dp, Resources.getSystem().displayMetrics
     ).roundToInt()
 }
-
-/*
-    fun createBitmapFromView(View view, int width, int height): Bitmap {
-        if (this.width > 0 && this.height > 0) {
-            view.measure(View.MeasureSpec.makeMeasureSpec(DynamicUnitUtils
-                            .convertDpToPixels(width), View.MeasureSpec.EXACTLY),
-                    View.MeasureSpec.makeMeasureSpec(DynamicUnitUtils
-                            .convertDpToPixels(height), View.MeasureSpec.EXACTLY));
-        }
-        view.layout(0, 0, view.getMeasuredWidth(), view.getMeasuredHeight());
-
-        Bitmap bitmap = Bitmap.createBitmap(view.getMeasuredWidth(),
-                view.getMeasuredHeight(), Bitmap.Config.ARGB_8888);
-        Canvas canvas = new Canvas(bitmap);
-        Drawable background = view.getBackground();
-
-        if (background != null) {
-            background.draw(canvas);
-        }
-        view.draw(canvas);
-
-        return bitmap;
-    }
- */
-

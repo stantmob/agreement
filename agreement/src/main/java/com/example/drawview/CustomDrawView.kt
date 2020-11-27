@@ -24,10 +24,10 @@ class CustomDrawView constructor(
     init {
         mDefaultColor = ContextCompat.getColor(context, R.color.black)
 
-        initPaintNPen()
+        initPaintAndPen()
     }
 
-    private fun initPaintNPen() {
+    private fun initPaintAndPen() {
         mLatestPaint = getNewPaintPen()
         mLatestPath  = getNewPathPen()
 
@@ -71,7 +71,7 @@ class CustomDrawView constructor(
     }
 
     private fun startPath(x: Float, y: Float) {
-        initPaintNPen()
+        initPaintAndPen()
         mLatestPath?.moveTo(x, y)
     }
 
@@ -94,7 +94,7 @@ class CustomDrawView constructor(
         pathPenList.clear()
         paintPenList.clear()
 
-        initPaintNPen()
+        initPaintAndPen()
         invalidate()
     }
 

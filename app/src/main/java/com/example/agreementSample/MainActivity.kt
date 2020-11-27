@@ -1,45 +1,54 @@
 package com.example.agreementSample
 
-import android.content.pm.ActivityInfo
 import android.os.Bundle
-import android.widget.Toast
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Lifecycle
+import com.example.agreement.AgreementDto
+import com.example.agreement.agreementdto.AddAgreementDto
 import com.example.agreementSample.databinding.ActivityMainBinding
+import com.example.listener.OnDataSaveListener
 
 class MainActivity : AppCompatActivity() {
 
     private var mBinding: ActivityMainBinding? = null
+    private var mDto: AgreementDto? = null
+    private var teste: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        requestedOrientation =  ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+
         setup()
     }
 
     private fun setup() {
-        setForwardText("Avançar")
-        setCleanText("Apagar")
-        setForwardButtonColor(R.color.occurrence_gray_forward)
-        setCleanButtonColor(R.color.occurrence_gray_erase)
+        setData()
+        openDialog()
+        showButton()
+
     }
 
-    private fun setForwardText(text: String) {
-        mBinding?.agreement?.setForwardText(text)
+    private fun showButton() {
+        mBinding?.newButton?.setOnClickListener {
+        mDto = mBinding?.agreement?.getAgreementData()
+        }
     }
 
-    private fun setCleanText(text: String) {
-        mBinding?.agreement?.setCleanText(text)
+    private fun setData() {
+        mBinding?.agreement?.setAddAgreementDto(
+            AddAgreementDto(
+                "Avançar", "Apagar",
+                R.color.occurrence_gray_forward, R.color.occurrence_gray_erase, 0
+            )
+        )
     }
 
-    private fun setForwardButtonColor(color: Int) {
-        mBinding?.agreement?.setForwardButtonColor(color)
+    private fun openDialog() {
+        mBinding?.agreement?.setOpenDialogClickListener()
     }
 
-    private fun setCleanButtonColor(color: Int) {
-        mBinding?.agreement?.setCleanButtonColor(color)
-    }
 
 
 }

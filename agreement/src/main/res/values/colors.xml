@@ -7,8 +7,13 @@
     <color name="white">#FFFFFF</color>
     <color name="occurrence">#55687e</color>
 
+    <color name="orange_stant">#ee3923</color>
+
+
     <color name="occurrence_gray_arrow">#55687e</color>
     <color name="occurrence_gray_forward">#55687e</color>
     <color name="occurrence_gray_erase">#55687e</color>
     <color name="occurrence_gray_line">#55687e</color>
+    <color name="black_transparent">#99000000</color>
+    <color name="other_black">#85000000</color>
 </resources>

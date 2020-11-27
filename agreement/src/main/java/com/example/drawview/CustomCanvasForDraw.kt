@@ -1,7 +1,6 @@
 package com.example.drawview
 
 import android.content.Context
-import android.graphics.Bitmap
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.LinearLayout
@@ -9,7 +8,7 @@ import androidx.databinding.DataBindingUtil
 import com.example.agreement.R
 import com.example.agreement.databinding.DrawOnTouchCustomCanvasBinding
 import com.example.listener.OnSavedPhotoListener
-import com.example.utils.createBitmapFromView
+import com.example.utils.extensions.getBitmapFromView
 import com.example.utils.saveBitmapInPictures
 
 class CustomCanvasForDraw @JvmOverloads constructor(
@@ -30,11 +29,8 @@ class CustomCanvasForDraw @JvmOverloads constructor(
     }
 
     fun saveFigure(onSavedPhotoListener: OnSavedPhotoListener) {
-        createBitmap().saveBitmapInPictures(context, onSavedPhotoListener)
-    }
-
-    private fun createBitmap(): Bitmap {
-        return createBitmapFromView(mBinding.root, this.width, this.height)
+        val customDrawViewBitmap = mBinding.root.getBitmapFromView(context)
+        customDrawViewBitmap.saveBitmapInPictures(context, onSavedPhotoListener)
     }
 
     private fun initView() {

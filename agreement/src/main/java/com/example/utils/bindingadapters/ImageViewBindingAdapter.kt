@@ -1,4 +1,4 @@
-package com.example.utils
+package com.example.utils.bindingadapters
 
 import android.content.Context
 import android.graphics.PorterDuff
