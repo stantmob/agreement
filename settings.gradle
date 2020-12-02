@@ -1,3 +1,4 @@
 include ':agreement'
 include ':app'
+include ':library'
 rootProject.name = "Agreement"
