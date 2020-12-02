@@ -15,7 +15,7 @@ fun Bitmap.saveBitmapInPictures(context: Context, onSavedPhotoListener: OnSavedP
     val calendar = Calendar.getInstance()
     val todayDate = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(calendar.time)
 
-    val directory = ImageViewFileUtil.getPublicAlbumDirectoryAtPictures( "Memeco")
+    val directory = ImageViewFileUtil.getPublicAlbumDirectoryAtPictures( "Stant")
 
     val imageFile = File.createTempFile(
         todayDate + "-" + ImageViewFileUtil.JPG_FILE_PREFIX
