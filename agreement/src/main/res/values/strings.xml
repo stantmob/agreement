@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Agreement</string>
+    <string name="image_preview_dialog.caption_hint">Add caption…</string>
+
+
+    <string name="permission_information_dialog.ok_hint">OK</string>
+    <string name="permission_information_dialog.settings">configurations</string>
+    <string name="permission_information_dialog.message">You must accept the following permissions to use the application</string>
+    <string name="permission_information_dialog.never_checked_message">You must go to settings click on permissions and allow the following permissions to use the application</string>
+    <string name="preview_dialog_save_button">Salvar</string>
+
+</resources>
