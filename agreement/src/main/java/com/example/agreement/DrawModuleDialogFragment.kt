@@ -58,9 +58,9 @@ class DrawModuleDialogFragment : BaseDialog() {
     }
 
     private fun setupView() {
-        mBinding?.backButton?.setOnClickListener { backPressed() }
-        mBinding?.cleanCanvaButton?.setOnClickListener { resetView() }
-        mBinding?.forwardButton?.setOnClickListener { openPickGalleryIntent() }
+        mBinding?.drawModuleFragmentBackButton?.setOnClickListener { backPressed() }
+        mBinding?.drawModuleFragmentCleanCanvaButtonTextView?.setOnClickListener { resetView() }
+        mBinding?.drawModuleFragmentForwardButton?.setOnClickListener { openPickGalleryIntent() }
     }
 
     private fun fillViews(addAgreementDto: AddAgreementDto) {
@@ -98,7 +98,7 @@ class DrawModuleDialogFragment : BaseDialog() {
     }
 
     private fun disableButtons() {
-        mBinding?.drawModuleContentView?.isEnabled = false
+        mBinding?.drawModuleFragmentContentView?.isEnabled = false
     }
 
     private fun backPressed() {
