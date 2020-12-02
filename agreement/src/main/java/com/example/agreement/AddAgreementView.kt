@@ -19,10 +19,10 @@ import com.example.listener.OnDrawSaveListener
 import com.example.utils.extensions.ContextExtension.Companion.getActivity
 
 class AddAgreementView @JvmOverloads constructor(
-    context: Context,
-    attributeSet: AttributeSet,
+    context:  Context,
+    attrs:    AttributeSet? = null,
     defStyle: Int = 0
-) : FrameLayout(context, attributeSet, defStyle){
+) : FrameLayout(context, attrs, defStyle){
     private var mAddAgreementDto: AddAgreementDto?  = null
     private var mAgreementData: AgreementDto?       = null
     private var mListener: OnDrawSaveListener?      = null
