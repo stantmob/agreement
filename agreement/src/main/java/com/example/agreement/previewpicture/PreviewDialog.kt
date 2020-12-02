@@ -114,15 +114,13 @@ class PreviewDialog : BaseDialog() {
             model?.sendAgreementDto(
                 AgreementDto(
                     mPath,
-                    mBinding?.cameraPhotoPreviewDialogEditCaption?.text.toString(),
-                    true
+                    mBinding?.cameraPhotoPreviewDialogEditCaption?.text.toString()
                 )
             )
             mListener?.setOnDataSaveListener(
                 AgreementDto(
                     mPath,
-                    mBinding?.cameraPhotoPreviewDialogEditCaption?.text.toString(),
-                    true
+                    mBinding?.cameraPhotoPreviewDialogEditCaption?.text.toString()
                 )
             )
             dismiss()

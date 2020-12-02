@@ -13,8 +13,7 @@ import com.example.listener.OnDataSaveListener
 class MainActivity : AppCompatActivity() {
 
     private var mBinding: ActivityMainBinding? = null
-    private var mDto: AgreementDto? = null
-    private var teste: String? = null
+    private var mDto: AgreementDto?            = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,7 +47,6 @@ class MainActivity : AppCompatActivity() {
     private fun openDialog() {
         mBinding?.agreement?.setOpenDialogClickListener()
     }
-
 
 
 }

@@ -16,7 +16,7 @@
         android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/draw_module_content_view"
+            android:id="@+id/draw_module_fragment_content_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -28,7 +28,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
-                android:id="@+id/back_button"
+                android:id="@+id/draw_module_fragment_back_button"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_marginStart="15dp"
@@ -38,37 +38,37 @@
                 app:srcCompat="@drawable/ic_arrow_left_grey" />
 
             <TextView
-                android:id="@+id/forward_button"
+                android:id="@+id/draw_module_fragment_forward_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingStart="20dp"
                 android:paddingTop="20dp"
                 android:paddingEnd="20dp"
                 android:paddingBottom="20dp"
+                android:text="@{dto.forwardText}"
                 android:textColor="@{dto.forwardColor}"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                android:text="@{dto.forwardText}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="Salvar" />
 
             <View
-                android:id="@+id/guide_line"
+                android:id="@+id/draw_module_fragment_guide_line_view"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginStart="50dp"
                 android:layout_marginEnd="50dp"
                 android:layout_marginBottom="80dp"
+                android:background="@color/grey"
                 android:visibility="visible"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:background="#979797"
                 tools:visibility="visible" />
 
             <TextView
-                android:id="@+id/clean_canva_button"
+                android:id="@+id/draw_module_fragment_clean_canva_button_text_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingStart="20dp"
@@ -76,11 +76,11 @@
                 android:paddingEnd="20dp"
                 android:paddingBottom="20dp"
                 android:text="@{dto.eraseText}"
-                tools:text="Erase"
                 android:textColor="@{dto.eraseColor}"
                 android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:text="Erase" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

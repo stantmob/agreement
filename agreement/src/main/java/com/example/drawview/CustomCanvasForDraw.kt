@@ -14,11 +14,10 @@ import com.example.utils.saveBitmapInPictures
 class CustomCanvasForDraw @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
-    defStyle: Int = 0
-) :
-    LinearLayout(context, attrs, defStyle) {
+    defStyle: Int        = 0
+) : LinearLayout(context, attrs, defStyle) {
 
-    private var customDrawView: CustomDrawView? = null
+    private var mCustomDrawView: CustomDrawView? = null
 
     private var mBinding: DrawOnTouchCustomCanvasBinding = DataBindingUtil.inflate(
         LayoutInflater.from(context), R.layout.draw_on_touch_custom_canvas, this, true
@@ -34,11 +33,11 @@ class CustomCanvasForDraw @JvmOverloads constructor(
     }
 
     private fun initView() {
-        customDrawView = mBinding.mainView
+        mCustomDrawView = mBinding.mainView
     }
 
     fun resetView() {
-        customDrawView?.resetView()
+        mCustomDrawView?.resetView()
     }
 
 

@@ -18,8 +18,8 @@ class CustomDrawView constructor(
     private var mLatestPath: Path?   = null
     private var mLatestPaint: Paint? = null
 
-    private val paintPenList= mutableListOf<Paint>()
-    private val pathPenList = mutableListOf<Path>()
+    private val mPaintPenList = mutableListOf<Paint>()
+    private val mPathPenList  = mutableListOf<Path>()
 
     init {
         mDefaultColor = ContextCompat.getColor(context, R.color.black)
@@ -31,8 +31,8 @@ class CustomDrawView constructor(
         mLatestPaint = getNewPaintPen()
         mLatestPath  = getNewPathPen()
 
-        mLatestPaint?.let { paintPenList.add(it) }
-        mLatestPath?.let { pathPenList.add(it) }
+        mLatestPaint?.let { mPaintPenList.add(it) }
+        mLatestPath?.let { mPathPenList.add(it) }
     }
 
     private fun getNewPathPen(): Path {
@@ -82,8 +82,8 @@ class CustomDrawView constructor(
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
 
-        for (i in 0 until paintPenList.size) {
-            canvas.drawPath(pathPenList[i], paintPenList[i])
+        for (i in 0 until mPaintPenList.size) {
+            canvas.drawPath(mPathPenList[i], mPaintPenList[i])
         }
     }
 
@@ -91,8 +91,8 @@ class CustomDrawView constructor(
         mLatestPath?.reset()
         mLatestPaint?.reset()
 
-        pathPenList.clear()
-        paintPenList.clear()
+        mPathPenList.clear()
+        mPaintPenList.clear()
 
         initPaintAndPen()
         invalidate()

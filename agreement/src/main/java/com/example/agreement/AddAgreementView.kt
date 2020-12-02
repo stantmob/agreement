@@ -27,7 +27,7 @@ class AddAgreementView @JvmOverloads constructor(
     private var mAgreementData: AgreementDto?       = null
     private var mListener: OnDrawSaveListener?      = null
     private var model: AddAgreementSharedViewModel? = null
-    private var preview= PreviewDialog()
+
     private val mBinding: AddAgreementComponentBinding = DataBindingUtil.inflate(
         LayoutInflater.from(
             context
