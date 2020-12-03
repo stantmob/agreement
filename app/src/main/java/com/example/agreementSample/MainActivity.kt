@@ -1,14 +1,11 @@
 package com.example.agreementSample
 
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.Lifecycle
 import com.example.agreement.AgreementDto
 import com.example.agreement.agreementdto.AddAgreementDto
 import com.example.agreementSample.databinding.ActivityMainBinding
-import com.example.listener.OnDataSaveListener
 
 class MainActivity : AppCompatActivity() {
 
@@ -36,12 +33,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setData() {
-        mBinding?.agreement?.setAddAgreementDto(
-            AddAgreementDto(
-                "Avançar", "Apagar",
-                R.color.occurrence_gray_forward, R.color.occurrence_gray_erase, 0
-            )
-        )
+        mBinding?.agreement?.setForwardText("Avançar")
+        mBinding?.agreement?.setEraseText("Apagar")
+        mBinding?.agreement?.setForwardTextColor(R.color.grey)
+        mBinding?.agreement?.setEraseTextColor(R.color.occurrence_gray)
+        mBinding?.agreement?.setLeftButtonDrawable(null)
     }
 
     private fun openDialog() {
