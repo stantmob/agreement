@@ -4,8 +4,9 @@ import android.content.Context
 import android.graphics.Bitmap
 import android.media.MediaScannerConnection
 import com.example.listener.OnSavedPhotoListener
-import rx.Single
-import rx.schedulers.Schedulers
+import io.reactivex.Single
+import io.reactivex.schedulers.Schedulers
+
 import java.io.File
 import java.io.FileOutputStream
 import java.text.SimpleDateFormat
