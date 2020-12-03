@@ -1,6 +1,8 @@
 <resources>
-    <string name="app_name">Agreement</string>
     <string name="image_preview_dialog.caption_hint">Add caption…</string>
+
+    <string name="custom_draw_forward_text">Avançar</string>
+    <string name="custom_draw_erase_text">Apagar</string>
 
 
     <string name="permission_information_dialog.ok_hint">OK</string>

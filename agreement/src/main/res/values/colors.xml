@@ -1,22 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="colorPrimary">#6200EE</color>
-    <color name="colorPrimaryDark">#3700B3</color>
-    <color name="colorAccent">#03DAC5</color>
     <color name="black">#000000</color>
     <color name="white">#FFFFFF</color>
-    <color name="occurrence">#55687e</color>
 
     <color name="orange_stant">#ee3923</color>
 
 
-    <color name="occurrence_gray_arrow">#55687e</color>
-    <color name="occurrence_gray_forward">#55687e</color>
-    <color name="occurrence_gray_erase">#55687e</color>
-    <color name="occurrence_gray_line">#55687e</color>
+    <color name="occurrence_gray">#55687e</color>
     <color name="black_transparent">#99000000</color>
-    <color name="other_black">#85000000</color>
     <color name="grey">#979797</color>
 
 </resources>

@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.view.*
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProviders
 import com.bumptech.glide.Glide
 import com.example.agreement.AgreementDto
 import com.example.agreement.R
@@ -33,8 +34,8 @@ class PreviewDialog : BaseDialog() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        model = ViewModelProvider(requireActivity()).get(AddAgreementSharedViewModel::class.java)
-        viewModel = ViewModelProvider(requireActivity()).get(SharedViewModel::class.java)
+        model = ViewModelProviders.of(requireActivity()).get(AddAgreementSharedViewModel::class.java)
+        viewModel = ViewModelProviders.of(requireActivity()).get(SharedViewModel::class.java)
         viewModel?.getPath()?.observe(viewLifecycleOwner, { path->
             mPath = path
             setupImage(path)

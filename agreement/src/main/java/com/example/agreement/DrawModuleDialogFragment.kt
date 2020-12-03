@@ -10,6 +10,7 @@ import android.view.WindowManager
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProviders
 import com.example.agreement.agreementdto.AddAgreementDto
 import com.example.agreement.databinding.DrawModuleFragmentBinding
 import com.example.agreement.previewpicture.PreviewDialog
@@ -49,8 +50,8 @@ class DrawModuleDialogFragment : BaseDialog() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        model     = ViewModelProvider(requireActivity()).get(SharedViewModel::class.java)
-        viewmodel = ViewModelProvider(requireActivity()).get(AddAgreementSharedViewModel::class.java)
+        model     = ViewModelProviders.of(requireActivity()).get(SharedViewModel::class.java)
+        viewmodel = ViewModelProviders.of(requireActivity()).get(AddAgreementSharedViewModel::class.java)
 
         viewmodel?.getAddAgreementDto()?.observe(viewLifecycleOwner, { addAgreementDto->
                      fillViews(addAgreementDto)
