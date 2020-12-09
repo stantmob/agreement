@@ -3,7 +3,7 @@ package com.example.agreement.viewmodels
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.agreement.AgreementDto
+import com.example.agreement.agreementdto.AgreementDto
 import com.example.agreement.agreementdto.AddAgreementDto
 
 class AddAgreementSharedViewModel: ViewModel() {

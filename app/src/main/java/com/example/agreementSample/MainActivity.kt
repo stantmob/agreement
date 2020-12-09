@@ -3,9 +3,9 @@ package com.example.agreementSample
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import com.example.agreement.AgreementDto
-import com.example.agreement.agreementdto.AddAgreementDto
+import com.example.agreement.agreementdto.AgreementDto
 import com.example.agreementSample.databinding.ActivityMainBinding
+import com.example.listener.OnDrawSaveListener
 
 class MainActivity : AppCompatActivity() {
 
@@ -23,13 +23,12 @@ class MainActivity : AppCompatActivity() {
         setData()
         openDialog()
         showButton()
-
+        setOnSaveListener()
     }
 
     private fun showButton() {
-        mBinding?.newButton?.setOnClickListener {
-        mDto = mBinding?.agreement?.getAgreementData()
-        }
+        mBinding?.agreement?.getAgreementData()
+
     }
 
     private fun setData() {
@@ -42,6 +41,29 @@ class MainActivity : AppCompatActivity() {
 
     private fun openDialog() {
         mBinding?.agreement?.setOpenDialogClickListener()
+    }
+
+    private fun setOnSaveListener() {
+        mBinding?.agreement?.configureListener(object: OnDrawSaveListener {
+            override fun setOnSaveListener(dto: AgreementDto) {
+                mBinding?.newText?.post {
+                    dto.path?.let { configureA(it) }
+                }
+
+                mBinding?.newText2?.post {
+                    dto.caption?.let { configureB(it) }
+                }
+            }
+
+        })    }
+
+    fun configureA(dto: String) {
+        mBinding?.newText?.text = dto
+
+    }
+
+    fun configureB(dto: String){
+        mBinding?.newText2?.text = dto
     }
 
 
