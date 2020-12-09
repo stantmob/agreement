@@ -4,11 +4,13 @@ import android.content.Context
 import android.content.pm.ActivityInfo
 import android.util.AttributeSet
 import android.view.LayoutInflater
+import android.view.View
 import android.widget.FrameLayout
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModelProviders
 import com.example.agreement.agreementdto.AddAgreementDto
+import com.example.agreement.agreementdto.AgreementDto
 import com.example.agreement.databinding.AddAgreementComponentBinding
 import com.example.agreement.viewmodels.AddAgreementSharedViewModel
 import com.example.listener.OnDrawSaveListener
@@ -40,6 +42,7 @@ class AddAgreementView @JvmOverloads constructor(
         model = ViewModelProviders.of(context as FragmentActivity).get(AddAgreementSharedViewModel::class.java)
         model?.getAgreementDto()?.observeForever {
             mAgreementData = it
+            setAgreement(it)
         }
     }
 
@@ -94,6 +97,13 @@ class AddAgreementView @JvmOverloads constructor(
         return mAgreementData
     }
 
+    fun configureListener(listener: OnDrawSaveListener) {
+        mListener = listener
+    }
+
+    private fun setAgreement(agreementDto: AgreementDto) {
+        agreementDto.let { mListener?.setOnSaveListener(it) }
+    }
 
 
 }

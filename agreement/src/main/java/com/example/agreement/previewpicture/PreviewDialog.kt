@@ -1,31 +1,31 @@
 package com.example.agreement.previewpicture
 
 import android.app.Dialog
+import android.content.DialogInterface
 import android.content.pm.ActivityInfo
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.*
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.bumptech.glide.Glide
-import com.example.agreement.AgreementDto
+import com.example.agreement.agreementdto.AgreementDto
 import com.example.agreement.R
 import com.example.agreement.databinding.PreviewDialogBinding
 import com.example.agreement.viewmodels.AddAgreementSharedViewModel
 import com.example.agreement.viewmodels.SharedViewModel
 import com.example.listener.OnDataSaveListener
+import com.example.listener.OnDrawSaveListener
 import com.example.utils.BaseDialog
 
 class PreviewDialog : BaseDialog() {
 
-    private var mBinding: PreviewDialogBinding? = null
-    private var viewModel: SharedViewModel?     = null
-    private var model: AddAgreementSharedViewModel?     = null
-    private var mListener: OnDataSaveListener?  = null
-    private var mPath: String?                  = null
-    private var mCaption: String?               = null
+    private var mBinding: PreviewDialogBinding?     = null
+    private var viewModel: SharedViewModel?         = null
+    private var model: AddAgreementSharedViewModel? = null
+    private var mListener: OnDrawSaveListener?      = null
+    private var mPath: String?                      = null
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         activity?.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
@@ -105,12 +105,13 @@ class PreviewDialog : BaseDialog() {
         dismiss()
     }
 
-    fun setupListener(onSaveData: OnDataSaveListener) {
+    fun setupListener(onSaveData: OnDrawSaveListener) {
         mListener = onSaveData
     }
 
     private fun save() {
         mBinding?.cameraPhotoPreviewDialogEditCaption?.text.toString()
+
         mBinding?.saveTextView?.setOnClickListener {
             model?.sendAgreementDto(
                 AgreementDto(
@@ -118,14 +119,13 @@ class PreviewDialog : BaseDialog() {
                     mBinding?.cameraPhotoPreviewDialogEditCaption?.text.toString()
                 )
             )
-            mListener?.setOnDataSaveListener(
+            mListener?.setOnSaveListener(
                 AgreementDto(
                     mPath,
                     mBinding?.cameraPhotoPreviewDialogEditCaption?.text.toString()
                 )
             )
             dismiss()
-
         }
     }
 

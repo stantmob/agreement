@@ -1,6 +1,6 @@
 package com.example.listener
 
-import com.example.agreement.AgreementDto
+import com.example.agreement.agreementdto.AgreementDto
 
 interface OnDataSaveListener {
 

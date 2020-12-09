@@ -9,13 +9,14 @@ import android.view.ViewGroup
 import android.view.WindowManager
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.FragmentActivity
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.example.agreement.agreementdto.AddAgreementDto
+import com.example.agreement.agreementdto.AgreementDto
 import com.example.agreement.databinding.DrawModuleFragmentBinding
 import com.example.agreement.previewpicture.PreviewDialog
 import com.example.agreement.viewmodels.AddAgreementSharedViewModel
 import com.example.agreement.viewmodels.SharedViewModel
+import com.example.listener.OnDataSaveListener
 import com.example.listener.OnSavedPhotoListener
 import com.example.utils.permissions.AppPermissions
 import com.example.utils.BaseDialog
