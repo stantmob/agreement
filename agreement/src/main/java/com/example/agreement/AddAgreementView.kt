@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.pm.ActivityInfo
 import android.util.AttributeSet
 import android.view.LayoutInflater
-import android.view.View
 import android.widget.FrameLayout
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.FragmentActivity
@@ -43,6 +42,7 @@ class AddAgreementView @JvmOverloads constructor(
         model?.getAgreementDto()?.observeForever {
             mAgreementData = it
             setAgreement(it)
+            disableAgreement(it.path)
         }
     }
 
@@ -72,6 +72,13 @@ class AddAgreementView @JvmOverloads constructor(
             leftButtonDrawable = mLeftButtonDrawable?: R.drawable.ic_arrow_left_grey
         )
 
+
+    fun disableAgreement(path: String?) {
+        if (!path.isNullOrEmpty()){
+            mBinding.addAgreementComponentImageView.setImageResource(R.drawable.ic_add_grey)
+            mBinding.addAgreementComponentImageView.setOnClickListener(null)
+        }
+    }
 
     fun setForwardText(text: String?){
         mForwardText = text
