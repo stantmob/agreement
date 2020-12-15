@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
         mBinding?.agreement?.setForwardText("Avançar")
         mBinding?.agreement?.setEraseText("Apagar")
         mBinding?.agreement?.setForwardTextColor(R.color.grey)
-        mBinding?.agreement?.setEraseTextColor(R.color.occurrence_gray)
+        mBinding?.agreement?.setEraseTextColor(R.color.grey)
         mBinding?.agreement?.setLeftButtonDrawable(null)
     }
 
